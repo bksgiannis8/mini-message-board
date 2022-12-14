@@ -3,3 +3,9 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  p you have messages 
+  ul
+    each val in messages 
+      each index, n in val
+        li= n + ':' + ' ' + index   
+      br
