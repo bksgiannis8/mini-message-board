@@ -13,9 +13,19 @@ router.get('/', function(req, res, next) {
       text: "Hello World!",
       user: "Charles",
       added: new Date()
+    },
+    {
+      text: "General Kenobi",
+      user: "Obi-Wan",
+      added: new Date()
+    },
+    {
+      text: "It's Johnny",
+      user: "Johhny",
+      added: new Date()
     }
  ];
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: "Mini Messageboard", messages: messages });
 });
 
 module.exports = router;
