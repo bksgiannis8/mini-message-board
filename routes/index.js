@@ -1,31 +1,22 @@
 var express = require('express');
 var router = express.Router();
+const messages = require('../public/javascripts/messages.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  const messages = [
-    {
-      text: "Hi there!",
-      user: "Amando",
-      added: new Date()
-    },
-    {
-      text: "Hello World!",
-      user: "Charles",
-      added: new Date()
-    },
-    {
-      text: "General Kenobi",
-      user: "Obi-Wan",
-      added: new Date()
-    },
-    {
-      text: "It's Johnny",
-      user: "Johhny",
-      added: new Date()
-    }
- ];
   res.render('index', { title: "Mini Messageboard", messages: messages });
 });
+
+
+/* GET /new page */
+router.get('/new', function(req, res, next) {
+  res.render('form', {title: "New"})
+})
+
+/* POST /new page */
+router.post('/new', function(req, res, next) {
+  messages.push({text: req.body.messageText, user: req.body.messageUser, added: new Date()});
+  res.redirect('/')
+})
 
 module.exports = router;
