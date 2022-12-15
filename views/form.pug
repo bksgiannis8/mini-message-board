@@ -2,8 +2,8 @@ extends layout
 
 block content 
     form(action="/new", method="post")
-        label(for="name") Enter your name   
-        input#name(type="text", name="name") 
+        label(for="messageUser") Enter your name   
+        input#name(type="text", name="messageUser") 
         label(for="text") Enter the text  
-        input#text(type="text", name="text")
+        input#text(type="messageText", name="messageText")
         button(type="submit") Submit 
